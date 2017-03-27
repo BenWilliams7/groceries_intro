@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $("#groceryform").submit(function(event) {
     $("#result").show();
-        // alert("hi2");
+    $("form").hide();
     event.preventDefault();
     var blanks = ["groceryItem1", "groceryItem2", "groceryItem3", "groceryItem4", "groceryItem5"];
     var tempArr = [];
@@ -13,12 +13,13 @@ $(document).ready(function(){
 
     var alphaArr = tempArr.sort();
 
-    tempArr.forEach(function(groceryInput){
+    alphaArr.forEach(function(groceryInput){
       $(".resultList").append("<li>" + groceryInput + "</li>");
     })
+  });
 
-    console.log(alphaArr);
-
+  $("#reload").click(function(){
+    location.reload();
   });
 
 });
